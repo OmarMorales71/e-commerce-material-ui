@@ -9,7 +9,6 @@ function App() {
 
     <>
         <PrimarySearchNavBar />
-      
           <PrimaryHeader />
 <br />
 <br />

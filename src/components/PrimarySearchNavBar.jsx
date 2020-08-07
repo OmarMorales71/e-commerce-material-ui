@@ -80,7 +80,6 @@ const PrimarySearchNavBar = () =>{
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          
             <ImageIcon edge="start"
             className={classes.menuButton}
             color="inherit"/>

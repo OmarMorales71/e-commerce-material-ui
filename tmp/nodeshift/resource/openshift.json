@@ -1,0 +1,150 @@
+{
+  "apiVersion": "v1",
+  "kind": "List",
+  "items": [
+    {
+      "apiVersion": "apps.openshift.io/v1",
+      "kind": "DeploymentConfig",
+      "metadata": {
+        "name": "e-commerce-shop",
+        "namespace": "material-ui-omar",
+        "labels": {
+          "project": "e-commerce-shop",
+          "version": "0.1.0",
+          "provider": "nodeshift",
+          "app": "e-commerce-shop",
+          "app.kubernetes.io/name": "nodejs",
+          "app.kubernetes.io/component": "e-commerce-shop",
+          "app.kubernetes.io/instance": "e-commerce-shop",
+          "app.openshift.io/runtime": "nodejs"
+        },
+        "annotations": {
+          "nodeshift/git-branch": "master",
+          "nodeshift/git-commit": "ea977e852fd0fbd688cffc2ab4fa51a3adb3261e"
+        }
+      },
+      "spec": {
+        "replicas": 1,
+        "revisionHistoryLimit": 2,
+        "selector": {
+          "app": "e-commerce-shop",
+          "project": "e-commerce-shop",
+          "provider": "nodeshift"
+        },
+        "triggers": [
+          {
+            "type": "ConfigChange"
+          },
+          {
+            "type": "ImageChange",
+            "imageChangeParams": {
+              "automatic": true,
+              "containerNames": [
+                "e-commerce-shop"
+              ],
+              "from": {
+                "kind": "ImageStreamTag",
+                "namespace": "material-ui-omar",
+                "name": "e-commerce-shop:latest"
+              }
+            }
+          }
+        ],
+        "template": {
+          "metadata": {
+            "labels": {
+              "project": "e-commerce-shop",
+              "version": "0.1.0",
+              "provider": "nodeshift",
+              "app": "e-commerce-shop"
+            },
+            "annotations": {
+              "nodeshift/git-branch": "master",
+              "nodeshift/git-commit": "ea977e852fd0fbd688cffc2ab4fa51a3adb3261e"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "e-commerce-shop",
+                "name": "e-commerce-shop",
+                "securityContext": {
+                  "privileged": false
+                },
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "env": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Service",
+      "spec": {
+        "selector": {
+          "project": "e-commerce-shop",
+          "provider": "nodeshift"
+        },
+        "ports": [
+          {
+            "protocol": "TCP",
+            "port": 8080,
+            "targetPort": 8080,
+            "name": "http"
+          }
+        ],
+        "type": "ClusterIP"
+      },
+      "metadata": {
+        "name": "e-commerce-shop",
+        "namespace": "material-ui-omar",
+        "labels": {
+          "project": "e-commerce-shop",
+          "version": "0.1.0",
+          "provider": "nodeshift",
+          "app.kubernetes.io/name": "nodejs",
+          "app.kubernetes.io/component": "e-commerce-shop",
+          "app.kubernetes.io/instance": "e-commerce-shop",
+          "app.openshift.io/runtime": "nodejs"
+        },
+        "annotations": {
+          "nodeshift/git-branch": "master",
+          "nodeshift/git-commit": "ea977e852fd0fbd688cffc2ab4fa51a3adb3261e"
+        }
+      }
+    },
+    {
+      "apiVersion": "route.openshift.io/v1",
+      "kind": "Route",
+      "spec": {
+        "to": {
+          "kind": "Service",
+          "name": "e-commerce-shop"
+        },
+        "port": {
+          "targetPort": 8080
+        }
+      },
+      "metadata": {
+        "name": "e-commerce-shop",
+        "labels": {
+          "project": "e-commerce-shop",
+          "version": "0.1.0",
+          "provider": "nodeshift",
+          "app.kubernetes.io/name": "nodejs",
+          "app.kubernetes.io/component": "e-commerce-shop",
+          "app.kubernetes.io/instance": "e-commerce-shop",
+          "app.openshift.io/runtime": "nodejs"
+        }
+      }
+    }
+  ]
+}
