@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
   },
+  gridContainer: {
+    paddingBottom: "50px",
+  },
   appBar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
   },
@@ -70,7 +73,7 @@ const PrimaryHeader = () => {
   const classes = useStyles();
 
   return (
-    <>
+    <div className={classes.gridContainer}>
       <Container maxWidth="sm" component="main" className={classes.heroContent}>
         <Typography
           component="h1"
@@ -125,7 +128,7 @@ const PrimaryHeader = () => {
           </Grid>
         </Grid>
       </div>
-    </>
+    </div>
   );
 };
 

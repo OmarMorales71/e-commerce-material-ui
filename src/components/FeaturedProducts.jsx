@@ -1,12 +1,19 @@
 import React from "react";
 import { Grid, Typography, TextareaAutosize } from "@material-ui/core";
+import {makeStyles} from '@material-ui/core/styles'
 import FeaturedCard from "./FeaturedCard";
 
-
+const useStyles=makeStyles({
+  gridContainer: {
+    paddingTop: "50px",
+    paddingBottom: "50px",
+  }
+})
 const FeaturedProducts = () => {
+  const classes = useStyles()
   return (
     <>
-      <Grid container>
+      <Grid container className={classes.gridContainer}>
         <Grid item xs={12} >
           <Typography variant="h3" color="initial" align="center" gutterBottom>
             Featured Products
