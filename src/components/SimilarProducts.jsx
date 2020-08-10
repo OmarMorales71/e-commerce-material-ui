@@ -56,7 +56,7 @@ const SimilarProduct = () => {
       className={classes.gridContainer}
     >
       <Grid item xs={12}>
-        <Typography variant="h3" color="secondary" align="center">
+        <Typography variant="h3" color="secondary" align="center" gutterBottom>
           Similar Products
         </Typography>
       </Grid>
