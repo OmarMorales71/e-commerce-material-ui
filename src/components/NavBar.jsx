@@ -16,6 +16,10 @@ const useStyles = makeStyles(theme=>({
       },
       toolbarTitle: {
         flexGrow: 1,
+        [theme.breakpoints.down('sm')]:{
+          display: "none"
+        }
+        
       },
     link: {
         margin: theme.spacing(1, 1.5),

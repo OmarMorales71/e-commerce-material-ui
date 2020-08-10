@@ -4,6 +4,8 @@ import HeaderShop from '../HeaderShop'
 import { Divider } from '@material-ui/core'
 import FeaturedCategories from '../FeaturedCategories'
 import Footer from '../Footer'
+import Subscribe from '../Subscribe'
+import RegardingProduct from '../RegardingProduct'
 
 const ShopPage = () =>{
 
@@ -14,6 +16,9 @@ const ShopPage = () =>{
         <Divider />
         <FeaturedCategories />
         <Divider />
+        <Subscribe />
+        <Divider />
+        <RegardingProduct />
         <Footer />
         </>
     )
