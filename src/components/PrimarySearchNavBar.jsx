@@ -73,7 +73,7 @@ const useStyles = makeStyles(theme =>({
     },
   }
 }))
-const PrimarySearchNavBar = () =>{
+const PrimarySearchNavBar = ({history}) =>{
  const classes = useStyles()
 
   return (
@@ -100,13 +100,13 @@ const PrimarySearchNavBar = () =>{
           </div>
           <div className={classes.grow} />
           <div>
-              <Button variant="text" color="default">
+              <Button variant="text" color="default" onClick={()=>history.push(``)}>
                 Home
               </Button>
               <Button variant="text" color="default">
                 About
               </Button>
-              <Button variant="text" color="default">
+              <Button variant="text" color="default" onClick={()=>history.push(`/shop`)}>
                 Shop
               </Button>
               <Button variant="text" color="default">

@@ -8,10 +8,11 @@ import Footer from "../Footer";
 import AboutShop from "../AboutShop";
 import ProductsSection from "../ProductsSection";
 
-function HomePage() {
+function HomePage({history}) {
+
   return (
     <>
-      <PrimarySearchNavBar />
+      <PrimarySearchNavBar history={history}/>
       <PrimaryHeader />
       <Divider />
       <FeaturedProducts />

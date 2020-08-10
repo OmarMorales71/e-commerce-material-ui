@@ -7,11 +7,11 @@ import Footer from '../Footer'
 import Subscribe from '../Subscribe'
 import RegardingProduct from '../RegardingProduct'
 
-const ShopPage = () =>{
+const ShopPage = ({history}) =>{
 
     return (
         <>
-        <NavBar />
+        <NavBar history={history}/>
         <HeaderShop />
         <Divider />
         <FeaturedCategories />

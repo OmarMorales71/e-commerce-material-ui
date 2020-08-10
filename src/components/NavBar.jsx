@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme=>({
 
 }))
 
-const NavBar=()=>{
+const NavBar=({history})=>{
     const classes = useStyles()
     return (
         <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
@@ -36,16 +36,16 @@ const NavBar=()=>{
             Company name
           </Typography>
           <nav>
-          <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+          <Link  onClick={()=>history.push(`/`)} variant="button" color="textPrimary"  className={classes.link}>
               Home
             </Link>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+            <Link variant="button" color="textPrimary"  className={classes.link}>
               About
             </Link>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+            <Link onClick={()=>history.push(`/shop`)} variant="button" color="textPrimary"  className={classes.link}>
               Shop
             </Link>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+            <Link variant="button" color="textPrimary"  className={classes.link}>
               Help
             </Link>
           </nav>
