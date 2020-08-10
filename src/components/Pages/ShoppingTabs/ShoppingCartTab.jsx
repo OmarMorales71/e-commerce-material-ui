@@ -106,7 +106,7 @@ const ShoppingCartTab = () => {
         </Grid>
       </Grid>
       <Grid item xs={12} sm={4}>
-          <Typography variant="h5" gutterBottom>
+          <Typography variant="h4" gutterBottom>
               Summary
           </Typography>
           <Divider />

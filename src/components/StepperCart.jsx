@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import ReviewComment from './ReviewComment';
 import ShoppingCartTab from './Pages/ShoppingTabs/ShoppingCartTab';
+import ShippingDetailsTap from './Pages/ShoppingTabs/ShippingDetailsTab';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -37,9 +38,7 @@ const useStyles = makeStyles((theme) => ({
         );
       case 1:
         return (
-            <Button>
-                Hola
-            </Button>
+            <ShippingDetailsTap />
         );
       case 2:
         return (
@@ -52,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
 const StepperCart = ()=>{
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState(1);
   const steps = getSteps();
 
   const handleNext = () => {
