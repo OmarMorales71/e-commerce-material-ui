@@ -80,8 +80,8 @@ const ShoppingCartTab = () => {
   };
 
   return (
-    <Grid conatiner className={classes.gridContainer} >
-      <Grid item xs={12} sm={8} container direction="column" spacing={0}>
+    <Grid container className={classes.gridContainer} spacing={2}>
+      <Grid item xs={12} sm={8} container direction="column">
         <Grid item>
           <Typography variant="h4" gutterBottom>
             Shopping Cart
