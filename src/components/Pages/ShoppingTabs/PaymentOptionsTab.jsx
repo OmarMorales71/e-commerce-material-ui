@@ -18,6 +18,9 @@ const useStyles = makeStyles({
   gridContainer: {
     padding: "50px",
   },
+  paymentGrid:{
+      maxHeight: "500px"
+  },
   card: {
     display: "flex",
   },
@@ -65,9 +68,8 @@ const PaymentOptionsTab = () => {
       container
       className={classes.gridContainer}
       spacing={2}
-      justify="center"
     >
-      <Grid item xs={12} sm={8} container spacing={2}>
+      <Grid className={classes.paymentGrid} item xs={12} sm={8} container spacing={2} alignItems="flex-start" justify="flex-start">
         <Grid item xs={12}>
           <Typography variant="h4" gutterBottom>
             Payment method
@@ -157,6 +159,27 @@ const PaymentOptionsTab = () => {
           Summary
         </Typography>
         <Divider />
+        <Grid item xs={12}>
+          {getSummaryCard(
+            "PRODUCT NAME",
+            "$300",
+            "https://pbs.twimg.com/profile_images/1062308294671376384/4GqTgUgc_400x400.jpg"
+          )}
+        </Grid>
+        <Grid item xs={12}>
+          {getSummaryCard(
+            "PRODUCT NAME",
+            "$300",
+            "https://pbs.twimg.com/profile_images/1062308294671376384/4GqTgUgc_400x400.jpg"
+          )}
+        </Grid>
+        <Grid item xs={12}>
+          {getSummaryCard(
+            "PRODUCT NAME",
+            "$300",
+            "https://pbs.twimg.com/profile_images/1062308294671376384/4GqTgUgc_400x400.jpg"
+          )}
+        </Grid>
         <Grid item xs={12}>
           {getSummaryCard(
             "PRODUCT NAME",
