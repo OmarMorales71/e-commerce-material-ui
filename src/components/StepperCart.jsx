@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 
 const StepperCart = ()=>{
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState(1);
   const steps = getSteps();
 
   const handleNext = () => {

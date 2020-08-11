@@ -14,12 +14,15 @@ import {
 } from "@material-ui/core";
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme=>({
   gridContainer: {
     padding: "50px",
   },
   paymentGrid:{
-      maxHeight: "500px"
+      [theme.breakpoints.up("sm")]: {
+        maxHeight: "500px"
+      }
+      
   },
   card: {
     display: "flex",
@@ -34,7 +37,7 @@ const useStyles = makeStyles({
   itemTotal: {
     padding: "10px 0",
   },
-});
+}));
 
 
 const PaymentOptionsTab = () => {
