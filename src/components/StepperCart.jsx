@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import ReviewComment from './ReviewComment';
 import ShoppingCartTab from './Pages/ShoppingTabs/ShoppingCartTab';
 import ShippingDetailsTap from './Pages/ShoppingTabs/ShippingDetailsTab';
+import PaymentOptionsTab from './Pages/ShoppingTabs/PaymentOptionsTab';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -42,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
         );
       case 2:
         return (
-            <Typography>Alternativo</Typography>
+            <PaymentOptionsTab />
         );
       default:
         return 'Unknown stepIndex';
@@ -51,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 
 const StepperCart = ()=>{
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(1);
+  const [activeStep, setActiveStep] = React.useState(2);
   const steps = getSteps();
 
   const handleNext = () => {
@@ -85,16 +86,17 @@ const StepperCart = ()=>{
             <div >
               {getStepContent(activeStep)}
               <div className={classes.buttonsContainer}>
-              <Button variant="contained" color="primary" onClick={handleNext}>
-                  {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                </Button>
-                <Button
+              <Button
                   disabled={activeStep === 0}
                   onClick={handleBack}
                   className={classes.backButton}
                 >
-                  Cancel
+                  Back
                 </Button>
+              <Button variant="contained" color="primary" onClick={handleNext}>
+                  {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                </Button>
+                
                 
               </div>
             </div>
