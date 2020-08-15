@@ -5,23 +5,42 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import {Typography} from "@material-ui/core"
-const useStyles = makeStyles({
-    
-    media: {
+import Rating from "@material-ui/lab/Rating";
+const useStyles = makeStyles(theme=>({
+  media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
   },
-});
+    mediaSmall: {
+    width: "100%",
+    height: '100px', 
+    },
+    rating: {
+      float: "right",
+      [theme.breakpoints.down('md')]:{
+        float: "none"
+      }
+    }
+}));
 
-const ProductCard = ({ imageUrl, title, price, size }) => {
+
+
+const ProductCard = ({ imageUrl, title, price, size, rating }) => {
   const classes = useStyles();
+  const getSize= size=>{
+    if(size==="s"){
+      return classes.mediaSmall
+    }else {
+      return classes.media
+    }
+  }
   return (
     <Card>
       <CardActionArea>
-        <CardMedia className={classes.media} image={imageUrl} title={title} />
+        <CardMedia className={getSize(size)} image={imageUrl} title={title} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {title}
+            {title}<span className={classes.rating}> <Rating name="read-only" value={3} readOnly /></span>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {price}
